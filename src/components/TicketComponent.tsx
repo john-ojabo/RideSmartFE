@@ -143,7 +143,7 @@ const TicketComponent = () => {
           <>
             {tableData.length === 0 ? (
               <h1 className="text-[#09483D] font-bold text-2xl text-center">
-                No Ticket Booked Yet!
+                {role === "User" ? "No Ticket Booked Yet!" : "No Ticket verified Yet!"}
               </h1>
             ) : (
               <div className="overflow-x-auto relative shadow-md sm:rounded-lg">
