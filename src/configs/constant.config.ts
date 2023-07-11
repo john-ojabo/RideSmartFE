@@ -1,5 +1,4 @@
 export const constant = {
-  baseURL: process.env.REACT_APP_BASE_URL as string,
   port: +(process.env.PORT as unknown as number) || 3000,
   devURL: process.env.REACT_APP_DEV_APP_URL as string,
   liveURL: process.env.REACT_APP_LIVE_APP_URL as string,
