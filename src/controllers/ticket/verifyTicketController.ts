@@ -74,6 +74,14 @@ const VerifyTicketController = catchAsync(
           res,
         });
       }
+      
+      if (ticket.driverId && ticket.driverId !== driverId) {
+        return successResponse({
+          message: "Ticket has been verified successfully by another driver!",
+          data: {},
+          res,
+        });
+      }
 
       const driverTicket = await prisma.ticket.findFirst({
         where: { AND: [{ id: ticketId }, { driverId }] },
