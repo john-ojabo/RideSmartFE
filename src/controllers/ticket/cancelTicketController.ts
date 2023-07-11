@@ -1,0 +1,87 @@
+import { successResponse } from "../../utils/successResponse";
+import { Request } from "../../interfaces/request.interface";
+import { errorResponse } from "../../utils/errorResponse";
+import catchAsync from "../../utils/catchAsync";
+import { prisma } from "../../server";
+import { Response } from "express";
+
+const CancelTicketController = catchAsync(
+  async (req: Request, res: Response) => {
+    const { id } = req.body;
+    const userId = req.user?.id;
+    const role = req.user?.role;    
+
+    try {
+      const ticket = await prisma.ticket.findFirst({
+        where: { AND: [{ userId }, { id }] },
+      });
+
+      if (!ticket) {
+        return errorResponse({
+          message: "Ticket not found!",
+          status: 404,
+          res,
+        });
+      }
+
+      const { status, isPaymentMade, userId: ticketUserId } = ticket;
+
+      if (userId !== ticketUserId)
+        return errorResponse({
+          message: "Not allowed to perform this!",
+          status: 403,
+          res,
+        });
+
+      if (role !== "User")
+        return errorResponse({
+          message: "Only users can cancelled ticket!",
+          status: 403,
+          res,
+        });
+
+      if (
+        status === "Cancelled" ||
+        status === "Expired" ||
+        status === "Paid"
+      ) {
+        return errorResponse({
+          message: `Ticket has ${
+            status === "Cancelled" || status === "Paid"
+              ? `been ${status}!`
+              : "expired!"
+          }`,
+          status: 400,
+          res,
+        });
+      }
+
+      if (isPaymentMade) {
+        return errorResponse({
+          message: "Payment has been made for this ticket already!",
+          status: 400,
+          res,
+        });
+      }
+
+      const updateTicket = await prisma.ticket.update({
+        where: { id },
+        data: { status: "Cancelled" },
+      });
+
+      return successResponse({
+        message: "Ticket has been cancelled successfully",
+        data: updateTicket,
+        res,
+      });
+    } catch (err: any) {
+      return errorResponse({
+        message: err.message || "Failed to cancelled ticket",
+        status: 500,
+        res,
+      });
+    }
+  }
+);
+
+export default CancelTicketController;
