@@ -1,21 +1,16 @@
 $navColorHover: #eb0f5b;
 
 .hero {
-  margin: 0;
-  padding: 0;
-  height: 100vh;
-  width: 100%;
+  @apply m-0 p-0 h-screen w-full;
 }
 
 .logo {
-  @apply absolute top-6 left-6 w-6 h-6 md:w-[12%];
+  @apply absolute top-4 lg:top-6 left-6 w-[31%] h-auto md:w-[22%] lg:w-3/12;
 }
 
 .errorContent {
-  position: absolute;
-  margin: 10rem auto;
-  width: 100%;
-  text-align: center;
+  @apply absolute top-1/2 translate-y-[-50%] inset-x-0;
+  @apply w-full p-0 m-0 mx-auto text-center;
 }
 
 .errorContent span {

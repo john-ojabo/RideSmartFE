@@ -19,8 +19,14 @@
 }
 
 .btn_close {
+  @apply block lg:hidden text-[#F1F1F1] font-bold bg-black py-1 text-sm rounded-md;
+  @apply px-6 fixed bottom-[50px] right-5 md:top-[80px] z-40 w-fit;
+}
+
+.desktop_btn_close {
   @apply text-[#F1F1F1] font-bold bg-black py-1 text-sm rounded-md;
-  @apply px-6 fixed bottom-2 right-[calc(100vw-83rem)] z-40;
+  @apply px-6 fixed bottom-2 right-3;
+  @apply z-40 w-fit hidden lg:block;
 }
 
 .btn_pay {
@@ -29,4 +35,3 @@
   @apply disabled:active:scale-100 disabled:bg-gray-300;
   transition: 0.3s;
 }
-

@@ -1,17 +1,17 @@
 .login {
-  @apply flex flex-col md:flex-row justify-between m-0 overflow-hidden;
+  @apply flex flex-col lg:flex-row justify-between m-0 lg:overflow-hidden;
 }
 
 .left {
-  @apply relative w-full md:h-screen m-0;
+  @apply relative w-full lg:h-screen m-0;
 }
 
 .left .logo {
-  @apply absolute top-6 left-6 w-6 h-6 md:w-3/12;
+  @apply absolute top-4 lg:top-6 left-6 w-[31%] h-auto md:w-[22%] lg:w-3/12;
 }
 
 .left .image {
-  @apply hidden md:flex;
+  @apply hidden lg:flex;
 }
 
 .image {
@@ -19,11 +19,12 @@
 }
 
 .right {
-  @apply relative w-full md:h-screen m-0;
+  @apply relative w-full h-screen m-0;
 }
 
 .form_login {
-  @apply absolute inset-x-0 top-1/2 w-7/12 mx-auto translate-y-[-50%];
+  @apply absolute inset-x-0 top-1/2 w-full md:w-7/12 mx-auto translate-y-[-50%];
+  @apply px-4 lg:px-0 overflow-auto;
 }
 
 .img_container {
@@ -40,6 +41,14 @@
 
 .form_login .are_you {
   @apply text-gray-500 text-center mb-4;
+}
+
+.full_name {
+  @apply flex space-x-2 md:space-x-2 w-full justify-between;
+}
+
+.full_name .input_container {
+  @apply mt-2 lg:mt-4 w-full;
 }
 
 .input_container,
@@ -89,7 +98,7 @@
 
 .input_container,
 .input_container_err {
-  @apply mt-4;
+  @apply mt-6;
 }
 
 // Matric No Input
@@ -247,14 +256,14 @@
 }
 
 .cust_radio_lbl {
-  @apply flex border border-gray-400 items-center w-full relative pl-[30px] mb-[15px];
-  @apply text-lg cursor-pointer rounded-lg justify-between py-3 pr-5;
+  @apply flex border border-gray-400 items-center w-full relative pl-[15px] md:pl-[35px] lg:pl-[30px] mb-[15px];
+  @apply text-lg cursor-pointer rounded-lg justify-between py-3 pr-2 md:pr-7 lg:pr-5;
   @apply hover:border-prmColor;
 }
 
 .cust_radio_lbl_active {
-  @apply flex border-2 border-prmColor bg-green-50 items-center w-full relative pl-[30px] mb-[15px];
-  @apply text-lg cursor-pointer rounded-lg justify-between py-3 pr-5;
+  @apply flex border-2 border-prmColor bg-green-50 items-center w-full relative pl-[15px] md:pl-[35px] lg:pl-[30px] mb-[15px];
+  @apply text-lg cursor-pointer rounded-lg justify-between py-3 pr-2 md:pr-7 lg:pr-5;
   @apply hover:border-prmColor;
 }
 

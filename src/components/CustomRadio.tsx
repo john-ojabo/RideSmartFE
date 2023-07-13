@@ -5,8 +5,9 @@ import { FaCheck } from "react-icons/fa";
 import { ChangeEvent } from "react";
 
 const CustomRadio = () => {
-  const dispatch = useAppDispatch();
   const selectedOpt = useAppSelector((state) => state.general.selectedOpt);
+  const dispatch = useAppDispatch();
+  
   const handleOptionChange = (evt: ChangeEvent<HTMLInputElement>) => {
     const value = evt.target.value;
     dispatch(setSelectedOpt(value));

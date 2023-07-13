@@ -1,5 +1,5 @@
 .right {
-  @apply w-[60%] relative h-screen;
+  @apply w-[60%] relative h-screen hidden lg:flex;
 }
 
 .right .img_wrapper {
@@ -7,38 +7,43 @@
   @apply mx-auto inset-x-0 w-fit;
 }
 
+.right .img_wrapper div {
+  @apply flex justify-center w-fit mx-auto ;
+}
+
 .right .img_wrapper img {
   @apply h-[20rem] w-fit;
 }
 
 .right .img_wrapper h2 {
-  @apply text-gray-800 text-2xl font-bold mt-2;
+  @apply text-gray-800 text-2xl font-bold mt-2 mx-auto;
+  @apply w-[90%] pl-2;
 }
 
 .right .img_wrapper p {
-  @apply text-gray-500 w-[70%];
+  @apply text-gray-500 w-[90%] mx-auto pl-2;
 }
 
 .right .img_wrapper a {
-  @apply font-bold hover:underline ml-2;
+  @apply font-bold hover:underline;
 }
 
 .left {
-  @apply w-[40%] text-gray-700 h-screen relative bg-white;
+  @apply w-full lg:w-[40%] text-gray-700 h-screen relative bg-white;
   box-shadow: -10px 0 22px rgba(0, 0, 0, .90);
 }
 
 .left > form {
   @apply absolute top-1/2 translate-y-[-50%] mx-auto inset-x-0 w-[80%] overflow-y-auto;
-  @apply flex flex-col space-y-4;
+  @apply flex flex-col space-y-4 md:w-[70%];
 }
 
 .left > form > h2 {
-  @apply font-bold pl-2 mb-[-.5rem] text-lg;
+  @apply font-bold pl-2 mb-[-.5rem] text-lg text-center lg:text-left;
 }
 
 .resp {
-  @apply mt-2 font-medium text-gray-700 text-center md:text-left;
+  @apply mt-2 font-medium text-gray-700 text-center lg:text-left;
 }
 
 .select_wrapper {
@@ -91,15 +96,19 @@
   @apply border-prmColor;
 }
 
+.btn_book_wrapper {
+  @apply w-full flex justify-center lg:justify-start text-center;
+}
+
 .btn_book {
-  @apply flex items-center justify-center w-5/12 text-white bg-prmColor py-3 rounded-lg ;
+  @apply flex items-center justify-center w-full md:w-7/12 lg:w-5/12 text-white bg-prmColor py-3 rounded-lg ;
   @apply active:scale-95 hover:bg-color3 disabled:bg-gray-300 disabled:cursor-not-allowed;
   @apply disabled:active:scale-100 disabled:font-medium;
   transition: 0.3s;
 }
 
 .aboutus {
-  @apply w-[40%] text-gray-700 h-screen relative bg-white;
+  @apply w-full lg:w-[40%] text-gray-700 h-screen relative bg-white;
   box-shadow: -10px 0 22px rgba(0, 0, 0, .90);
 }
 

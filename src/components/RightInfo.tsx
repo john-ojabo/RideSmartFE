@@ -5,7 +5,9 @@ const RightInfo = () => {
   return (
     <div className={styles.right}>
       <div className={styles.img_wrapper}>
-        <img src="./img_2.png" alt="vector img" />
+        <div>
+          <img src="./img_2.png" alt="vector img" />
+        </div>
         <h2>Start Booking Now!</h2>
         <p>
           Book your tickets now and enjoy your ride smartly. What are you
