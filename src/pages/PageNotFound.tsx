@@ -10,7 +10,7 @@ const PageNotFound = () => {
   return (
     <>
       <div className={styles.logo}>
-        <img src="logo.png" alt="logo" />
+        <img src="../logo.png" alt="logo" />
       </div>
       <div className={styles.hero}>
         <div className={styles.errorContent}>
