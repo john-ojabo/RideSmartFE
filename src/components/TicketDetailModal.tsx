@@ -79,7 +79,7 @@ const TicketDetailModal = () => {
                     Yes
                   </button>
                 ) : (
-                  <LoadingBtn title="Cancelling..." styles={styles.btn_yes} />
+                  <LoadingBtn title="loading" styles={styles.btn_yes} />
                 )}
                 <button
                   className={styles.btn_no}
