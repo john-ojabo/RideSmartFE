@@ -122,12 +122,20 @@ const TicketComponent = () => {
       {showModal && <TicketDetailModal />}
       {showPrintOut && <PDFPrintout />}
       {showPrintOut && !isPDFViewLoaded && (
-        <button
-          className={styles.btn_close}
-          onClick={() => dispatch(showPrintoutModal(false))}
-        >
-          Close
-        </button>
+        <>
+          <button
+            className={styles.btn_close}
+            onClick={() => dispatch(showPrintoutModal(false))}
+          >
+            Close
+          </button>
+          <button
+            className={styles.desktop_btn_close}
+            onClick={() => dispatch(showPrintoutModal(false))}
+          >
+            Close
+          </button>
+        </>        
       )}
 
       <div className={styles.dashTable}>
