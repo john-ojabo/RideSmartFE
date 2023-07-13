@@ -53,17 +53,19 @@ const VerifyTicketForm = () => {
           {isValid && <p className={styles.err_msg}>Invalid Ticket ID</p>}
         </div>
         {/* Verify Button */}
-        {!isLoading ? (
-          <button
-            className={styles.btn_book}
-            onClick={handleSubmit}
-            disabled={!isDisabled}
-          >
-            Verify
-          </button>
-        ) : (
-          <LoadingBtn title="Verifying..." styles={styles.btn_book} />
-        )}
+        <div className={styles.btn_book_wrapper}>
+          {!isLoading ? (
+            <button
+              className={styles.btn_book}
+              onClick={handleSubmit}
+              disabled={!isDisabled}
+            >
+              Verify
+            </button>
+          ) : (
+            <LoadingBtn title="Verifying..." styles={styles.btn_book} />
+          )}
+        </div>
         {msg && <p className={styles.resp}>{msg}</p>}
       </form>
     </div>
