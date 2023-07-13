@@ -375,7 +375,7 @@ const Signup = () => {
             <p className={styles.are_you}>
               Are you new? Register a new account
             </p>
-            <div className="flex space-x-2">
+            <div className={styles.full_name}>
               {/* FIRST NAME */}
               <div className={styles.input_container}>
                 <input
