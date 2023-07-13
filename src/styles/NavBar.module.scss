@@ -46,7 +46,7 @@
 
 .nav_link_phone {
   @apply w-full list-none md:hidden flex flex-col lg:space-x-1 md:space-x-2;
-  @apply absolute left-0 top-8 mt-8 bg-bgColor z-10;
+  @apply absolute left-0 top-8 mt-[35px] bg-bgColor z-10;
   @apply text-prmColor shadow-md;
 }
 
