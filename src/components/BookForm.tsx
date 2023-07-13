@@ -151,7 +151,8 @@ const BookForm = () => {
           <input id="amt" type="number" min={100} value={amt} disabled />
         </div>
         {/* Book BTN */}
-        {!isLoading ? (
+        <div className={styles.btn_book_wrapper}>
+          {!isLoading ? (
           <button
             className={styles.btn_book}
             onClick={handleSubmit}
@@ -162,6 +163,7 @@ const BookForm = () => {
         ) : (
           <LoadingBtn title="Booking..." styles={styles.btn_book} />
         )}
+        </div>        
       </form>
     </div>
   );
