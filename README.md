@@ -19,8 +19,8 @@ Use the login details below to log in as a driver
 
 ## Making Payment
 - Log on to https://developer.flutterwave.com/ to create a new account
-- Generate a public key and input in the **.env** file
-- When making payment for testing purposes, use the bank and card details on this link: https://developer.flutterwave.com/docs/integration-guides/testing-helpers/
+- Login to your account, copy the public key and assign it to variable **REACT_APP_FLWPUBKTEST** of the **.env** file
+- When making payment for testing purposes, use the bank and card details provided on this link: https://developer.flutterwave.com/docs/integration-guides/testing-helpers/
 
 ## Get Started
 1. Git clone the project
