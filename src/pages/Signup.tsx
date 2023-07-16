@@ -3,13 +3,13 @@ import { errorToastStyle, successToastStyle } from "../utils/styles.utils";
 import { useAppDispatch, useAppSelector } from "../hooks/store.hook";
 import { AiOutlineUnlock, AiOutlineLock } from "react-icons/ai";
 import { isValidPhoneNumber } from "libphonenumber-js";
+import { Link, useNavigate } from "react-router-dom";
 import LoadingBtn from "../components/LoadingBtn";
 import styles from "../styles/Login.module.scss";
 import toast, { Toaster } from "react-hot-toast";
 import { registerUser } from "../store/actions";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
-import { Link, useNavigate } from "react-router-dom";
 
 const Signup = () => {
   const isLoading = useAppSelector((state) => state.auth.isLoading);

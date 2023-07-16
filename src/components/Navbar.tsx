@@ -45,7 +45,7 @@ const Navbar = () => {
         <ul className={styles.nav_link}>
           <li className={link === "booking" ? styles.nav_li_active : ""}>
             <FaSwatchbook />
-            <Link to="/booking">Booking</Link>
+            <Link to="/booking">{userData?.role === "Driver" ? "Verifying" : "Booking"}</Link>
           </li>
           <li className={link === "tickets" ? styles.nav_li_active : ""}>
             <MdOutlineAirplaneTicket />
@@ -95,7 +95,7 @@ const Navbar = () => {
         <ul ref={nodeRef} className={styles.nav_link_phone}>
           <li className={link === "booking" ? styles.nav_mobile_li_active : ""}>
             <FaSwatchbook />
-            <Link to="/booking">Booking</Link>
+            <Link to="/booking">{userData?.role === "Driver" ? "Verifying" : "Booking"}</Link>
           </li>
           <li className={link === "tickets" ? styles.nav_mobile_li_active : ""}>
             <MdOutlineAirplaneTicket />

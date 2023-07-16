@@ -108,11 +108,13 @@
 }
 
 .aboutus {
-  @apply w-full lg:w-[40%] text-gray-700 h-screen relative bg-white;
+  @apply w-full lg:w-[40%] text-gray-700 h-screen relative bg-white overflow-hidden;
   box-shadow: -10px 0 22px rgba(0, 0, 0, .90);
 }
 
 .aboutus > p {
-  @apply absolute top-1/2 translate-y-[-50%] mx-auto inset-x-0 w-[80%] overflow-y-auto;
+  @apply absolute top-1/2 translate-y-[-50%] mx-auto inset-x-0 w-[80%];
   @apply flex flex-col space-y-4;
+  max-height: calc(100% - 4rem); /* Adjust the padding if needed */
+  overflow-y: auto;
 }
