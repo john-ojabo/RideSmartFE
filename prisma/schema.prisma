@@ -27,8 +27,9 @@ enum Role {
 enum Status {
   Cancelled
   Active
-  Expired
+  Refunded
   Paid
+  Used
 }
 
 enum Currency {
