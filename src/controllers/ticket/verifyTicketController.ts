@@ -57,24 +57,24 @@ const VerifyTicketController = catchAsync(
         });
       }
 
-      if (!isPaymentMade || status === "Active" || !trans_id) {
+      if (status === "Used" || status === "Refunded") {
         return errorResponse({
-          message: "Payment has not been made for this ticket!",
+          message: `Ticket has been ${status} already!`,
           status: 400,
           res,
         });
       }
 
-      if (status !== "Paid") {
+      if ((!isPaymentMade || !trans_id) && status !== "Paid") {
         return errorResponse({
-          message: `Ticket has ${
-            status === "Cancelled" ? `been ${status}!` : "expired!"
-          }`,
+          message: `Payment has not been made for this ticket and  ${
+            status !== "Active" ? `has been ${status}` : "still active"
+          }!`,
           status: 400,
           res,
         });
       }
-      
+
       if (ticket.driverId && ticket.driverId !== driverId) {
         return successResponse({
           message: "Ticket has been verified successfully by another driver!",
@@ -87,13 +87,14 @@ const VerifyTicketController = catchAsync(
         where: { AND: [{ id: ticketId }, { driverId }] },
       });
 
-      let updatedTicket = {}
+      let updatedTicket = {};
 
       if (!driverTicket) {
         updatedTicket = await prisma.ticket.update({
           where: { id: ticketId },
           data: {
             driverId,
+            status: "Used",
           },
         });
       }
