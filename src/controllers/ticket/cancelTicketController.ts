@@ -9,7 +9,7 @@ const CancelTicketController = catchAsync(
   async (req: Request, res: Response) => {
     const { id } = req.body;
     const userId = req.user?.id;
-    const role = req.user?.role;    
+    const role = req.user?.role;
 
     try {
       const ticket = await prisma.ticket.findFirst({
@@ -42,23 +42,11 @@ const CancelTicketController = catchAsync(
 
       if (
         status === "Cancelled" ||
-        status === "Expired" ||
-        status === "Paid"
+        status === "Refunded" ||
+        status === "Used"
       ) {
         return errorResponse({
-          message: `Ticket has ${
-            status === "Cancelled" || status === "Paid"
-              ? `been ${status}!`
-              : "expired!"
-          }`,
-          status: 400,
-          res,
-        });
-      }
-
-      if (isPaymentMade) {
-        return errorResponse({
-          message: "Payment has been made for this ticket already!",
+          message: `Ticket has been ${status}`,
           status: 400,
           res,
         });
@@ -66,11 +54,13 @@ const CancelTicketController = catchAsync(
 
       const updateTicket = await prisma.ticket.update({
         where: { id },
-        data: { status: "Cancelled" },
+        data: { status: isPaymentMade ? "Refunded" : "Cancelled" },
       });
 
       return successResponse({
-        message: "Ticket has been cancelled successfully",
+        message: `Ticket has been ${
+          isPaymentMade ? "cancelled and money refunded" : "cancelled"
+        } successfully`,
         data: updateTicket,
         res,
       });
