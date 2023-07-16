@@ -82,7 +82,7 @@ const TicketComponent = () => {
     text: "Pay",
     callback: (response: any) => {
       const data = response;
-      console.log("RES => ", response)
+      console.log("RES => ", response);
       if (data.status === "successful" || data.status === "completed") {
         dispatch(
           updateTicket({
@@ -135,7 +135,7 @@ const TicketComponent = () => {
           >
             Close
           </button>
-        </>        
+        </>
       )}
 
       <div className={styles.dashTable}>
@@ -151,7 +151,9 @@ const TicketComponent = () => {
           <>
             {tableData.length === 0 ? (
               <h1 className="text-[#09483D] font-bold text-2xl text-center">
-                {role === "User" ? "No Ticket Booked Yet!" : "No Ticket verified Yet!"}
+                {role === "User"
+                  ? "No Ticket Booked Yet!"
+                  : "No Ticket verified Yet!"}
               </h1>
             ) : (
               <div className="overflow-x-auto relative shadow-md sm:rounded-lg">
@@ -204,11 +206,17 @@ const TicketComponent = () => {
                         >
                           <p
                             className={`w-fit py px-1 rounded-md ${
-                              item.status === "Active"
+                              item.status === "Paid"
                                 ? "bg-green-500"
                                 : item.status === "Cancelled"
                                 ? "bg-red-500"
-                                : "bg-orange-500"
+                                : item.status === "Refunded"
+                                ? "bg-orange-500"
+                                : item.status === "Used"
+                                ? "bg-blue-500"
+                                : item.status === "Active"
+                                ? "bg-yellow-500"
+                                : "bg-gray-500"
                             }`}
                           >
                             {item.status}
@@ -254,11 +262,13 @@ const TicketComponent = () => {
         )}
       </div>
 
-      {!hasError && !isLoading && totalPgs > 1 && <Pagination
-        totalPages={totalPgs}
-        currentPage={currentPg}
-        onPageChange={handlePageChange}
-      />}
+      {!hasError && !isLoading && totalPgs > 1 && (
+        <Pagination
+          totalPages={totalPgs}
+          currentPage={currentPg}
+          onPageChange={handlePageChange}
+        />
+      )}
     </>
   );
 };
