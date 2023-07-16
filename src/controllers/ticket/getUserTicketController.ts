@@ -21,7 +21,7 @@ const GetUserTicketController = catchAsync(
             where: { userId },
           })
         : await prisma.ticket.count({
-            where: { AND: [{ driverId }, { status: "Paid" }] },
+            where: { OR: [{ driverId }] },
           });
 
     const totalPages = Math.ceil(totalCount / limitNum);
@@ -39,7 +39,7 @@ const GetUserTicketController = catchAsync(
               },
             })
           : await prisma.ticket.findMany({
-              where: { AND: [{ driverId }, { status: "Paid" }] },
+              where: { OR: [{ driverId }] },
               orderBy: { date: "desc" },
               take: limitNum,
               skip: offset,
