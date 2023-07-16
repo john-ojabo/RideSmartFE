@@ -60,6 +60,11 @@ const BookForm = () => {
 
   const onInputSeatChange = (evt: ChangeEvent<HTMLInputElement>) => {
     const value = +evt.target.value;
+
+    if (value > 18) {
+      return;
+    }
+
     setInputVal((prev) => ({
       seat: value,
       amt: 150 * value,
@@ -88,6 +93,11 @@ const BookForm = () => {
 
   const handleSubmit = (evt: FormEvent) => {
     evt.preventDefault();
+
+    if (seat > 18) {
+      return;
+    }
+
     dispatch(bookTicket({ from, to, seat: `${seat}`, amount: `${amt}` }));
   };
 
@@ -141,6 +151,7 @@ const BookForm = () => {
             type="number"
             step={1}
             min={1}
+            max={18}
             defaultValue={seat}
             onChange={onInputSeatChange}
           />
