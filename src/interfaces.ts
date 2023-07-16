@@ -100,7 +100,7 @@ export interface TicketData {
   seat: number;
   price: string;
   amount: string;
-  status: "Cancelled" | "Active" | "Expired" | "Paid";
+  status: "Cancelled" | "Active" | "Refunded" | "Paid" | "Used";
   date: string;
   isPaymentMade: boolean;
   currency: string;
@@ -171,6 +171,7 @@ export interface TicketSliceData {
   error: SerializedError | null;
   errorCan: SerializedError | null;
   errorVer: SerializedError | null;
+  errorUpd: SerializedError | null;
   success: boolean;
   successUpd: boolean;
   successCan: boolean;

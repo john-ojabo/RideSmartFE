@@ -9,6 +9,7 @@ const ticketSlice = createSlice({
     error: null,
     errorCan: null,
     errorVer: null,
+    errorUpd: null,
     success: false,
     successUpd: false,
     successCan: false,
@@ -107,7 +108,7 @@ const ticketSlice = createSlice({
         const statusCode = error.message?.split(":")[0];
         const errorMsg = error.message?.split(":")[1];
         state.isLoading = false;
-        state.error = error;
+        state.errorUpd = error;
         state.statusUpdate = +(statusCode as string);
         state.messageUpdate = errorMsg as string;
       })
