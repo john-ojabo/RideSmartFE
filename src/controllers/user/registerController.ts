@@ -1,9 +1,10 @@
+import { successResponse } from "../../utils/successResponse";
+import { errorResponse } from "../../utils/errorResponse";
+import { titleCase } from "../../utils/titleCase.util";
 import catchAsync from "../../utils/catchAsync";
 import { Request, Response } from "express";
 import { prisma } from "../../server";
 import bcrypt from "bcryptjs";
-import { successResponse } from "../../utils/successResponse";
-import { errorResponse } from "../../utils/errorResponse";
 
 const RegisterController = catchAsync(async (req: Request, res: Response) => {
   const { firstName, lastName, matricNo, email, password, phone } = req.body;
@@ -26,9 +27,9 @@ const RegisterController = catchAsync(async (req: Request, res: Response) => {
     // Create the new user
     const newUser = await prisma.user.create({
       data: {
-        firstName,
-        lastName,
-        matricNo,
+        firstName: titleCase(firstName),
+        lastName: titleCase(lastName),
+        matricNo: `${matricNo}`.toUpperCase(),
         email,
         password: hashedPassword,
         phone,
