@@ -120,7 +120,7 @@ const TicketDetailModal = () => {
                 <button
                   className={styles.btn_cancel}
                   onClick={() => setIsCancel(true)}
-                  disabled={role !== "User" || data?.status !== "Active"}
+                  disabled={role !== "User" || (data?.status !== "Active" && data?.status !== "Paid")}
                 >
                   <TiCancel size={"1.2rem"} className={"mr-1"} /> Cancel
                 </button>
