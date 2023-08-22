@@ -5,10 +5,10 @@ generator joi {
   output   = "./joi"
 }
 
-generator erd {
-  provider = "prisma-erd-generator"
-  output   = "erd.png"
-}
+// generator erd {
+//   provider = "prisma-erd-generator"
+//   output   = "erd.png"
+// }
 
 generator client {
   provider = "prisma-client-js"
