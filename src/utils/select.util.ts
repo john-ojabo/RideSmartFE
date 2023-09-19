@@ -7,27 +7,27 @@ export const customStyles = (from: boolean, to: boolean) => {
       cursor: "pointer",
       ":hover": { background: "#F0FDF4", color: "#1F2937" },
     }),
-    clearIndicator: (defaultStyles: any, state: any) => ({
+    clearIndicator: (defaultStyles: any) => ({
       ...defaultStyles,
       cursor: "pointer",
       ":hover": { color: "#DC2626" },
     }),
-    dropdownIndicator: (defaultStyles: any, state: any) => ({
+    dropdownIndicator: (defaultStyles: any) => ({
       ...defaultStyles,
       cursor: "pointer",
       display: "none",
       ":hover": { color: "white" },
     }),
-    input: (defaultStyles: any, state: any) => ({
+    input: (defaultStyles: any) => ({
       ...defaultStyles,
       caretColor: "transparent",
       border: "none",
     }),
-    menu: (defaultStyles: any, state: any) => ({
+    menu: (defaultStyles: any) => ({
       ...defaultStyles,
       background: "rgba(0 0 0 .8)",
     }),
-    noOptionsMessage: (defaultStyles: any, state: any) => ({
+    noOptionsMessage: (defaultStyles: any) => ({
       ...defaultStyles,
       background: "#374151",
       color: "white",

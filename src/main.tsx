@@ -12,7 +12,6 @@ import Login from "./pages/Login";
 import "./styles/index.scss";
 import React from "react";
 
-
 const router = createBrowserRouter([
   {
     path: "/",
@@ -44,10 +43,7 @@ const router = createBrowserRouter([
   },
 ]);
 
-const root = ReactDOM.createRoot(
-  document.getElementById("root") as HTMLElement
-);
-root.render(
+ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>

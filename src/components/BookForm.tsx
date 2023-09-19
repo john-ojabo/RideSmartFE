@@ -65,7 +65,7 @@ const BookForm = () => {
       return;
     }
 
-    setInputVal((prev) => ({
+    setInputVal(() => ({
       seat: value,
       amt: 150 * value,
     }));

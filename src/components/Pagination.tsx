@@ -1,8 +1,8 @@
 import { BiLeftArrowAlt, BiRightArrowAlt } from "react-icons/bi";
 import styles from "../styles/Pagination.module.scss";
 import { PaginationProps } from "../interfaces";
+import { ReactNode, useState } from "react";
 import { TbDots } from "react-icons/tb";
-import { useState } from "react";
 
 const Pagination = (props: PaginationProps) => {
   const { totalPages, currentPage, onPageChange } = props;
@@ -14,7 +14,7 @@ const Pagination = (props: PaginationProps) => {
   };
 
   const renderPageNumbers = () => {
-    const pageNumbers = [];
+    const pageNumbers: ReactNode[] = [];
 
     if (totalPages <= 10) {
       for (let i = 1; i <= totalPages; i++) {
@@ -29,8 +29,8 @@ const Pagination = (props: PaginationProps) => {
         );
       }
     } else {
-      const firstPageNumbers = [];
-      const lastPageNumbers = [];
+      const firstPageNumbers: ReactNode[] = [];
+      const lastPageNumbers: ReactNode[] = [];
 
       // Display first three pages
       for (let i = 1; i <= 3; i++) {

@@ -1,8 +1,8 @@
 export const constant = {
-  port: +(process.env.PORT as unknown as number) || 3000,
-  devURL: process.env.REACT_APP_DEV_APP_URL as string,
-  liveURL: process.env.REACT_APP_LIVE_APP_URL as string,
-  FLWPUBKTest: process.env.REACT_APP_FLWPUBKTEST as string,
-  uploadLogo: process.env.REACT_APP_UPLOAD_LOGO as string,
-  appURL: process.env.REACT_APP_APP_URL as string,
+  port: +(import.meta.env.PORT as unknown as number) || 5173,
+  devURL: import.meta.env.VITE_DEV_APP_URL as string,
+  liveURL: import.meta.env.VITE_LIVE_APP_URL as string,
+  FLWPUBKTest: import.meta.env.VITE_FLWPUBKTEST as string,
+  uploadLogo: import.meta.env.VITE_UPLOAD_LOGO as string,
+  appURL: import.meta.env.VITE_APP_URL as string,
 };
