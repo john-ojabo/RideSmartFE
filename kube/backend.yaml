@@ -16,14 +16,15 @@ spec:
       containers:
       - name: backend
         image: johnojabo1/ride-b
-        resources:
-          limits:
-            memory: "128Mi"
-            cpu: "500m"
+        imagePullPolicy: Always
+        # resources:
+        #   limits:
+        #     memory: "128Mi"
+        #     cpu: "500m"....
         ports:
-        - containerPort: 3101
+        - containerPort: 8080
         env:
-        - name: database-url
+        - name: DATABASE_URL
           valueFrom:
             secretKeyRef:
               name: nje-secret
@@ -35,8 +36,9 @@ metadata:
   name: backend-service
 spec:
   selector:
-    app: frontend
+    app: backend
+  type: LoadBalancer
   ports:
   - protocol: TCP
-    port: 80
-    targetPort: 3101
+    port: 8080
+    targetPort: 8080
