@@ -1,0 +1,29 @@
+steps:
+  - name: gcr.io/cloud-builders/docker
+    args:
+      - build
+      - '--no-cache'
+      - '-t'
+      - >-
+        us-central1-docker.pkg.dev/nje-devops/backend/backend:latest
+      - .
+      - '-f'
+      - Dockerfile
+    id: Build
+  - name: gcr.io/cloud-builders/docker
+    args:
+      - push
+      - >-
+        us-central1-docker.pkg.dev/nje-devops/backend/backend:latest
+    id: Push
+  # - name: 'gcr.io/cloud-builders/gcloud'
+  # id: Deploy
+  # entrypoint: 'bash'
+  # args:
+  #   - '-c'
+  #   - |
+  #        PROJECT=$$(gcloud config get-value core/project)          
+  #        gke-gcloud-auth-plugin --version
+  #        export USE_GKE_GCLOUD_AUTH_PLUGIN=True
+  #        gcloud container clusters get-credentials "nje-cluster" --project "nje-devops"  --zone "us-central1"  
+  #        kubectl apply -f ./kube/frontend.yaml
