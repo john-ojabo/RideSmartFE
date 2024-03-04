@@ -27,6 +27,6 @@ steps:
           PROJECT=$$(gcloud config get-value core/project)          
           gke-gcloud-auth-plugin --version
           export USE_GKE_GCLOUD_AUTH_PLUGIN=True
-          gcloud container clusters get-credentials "nje-dev" --project "nje-devops"  --zone "us-central1-a"  
+          gcloud container clusters get-credentials "nje-dev" --project "nje-devops"  --zone "us-central1"  
           kubectl apply -f ./kube/frontend.yaml
           kubectl apply -f ./kube/secrets.yaml
